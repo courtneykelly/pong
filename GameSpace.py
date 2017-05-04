@@ -1,5 +1,6 @@
 import pygame
 import math
+from Player import Player
 
 class GameSpace:
 	def main(self):
@@ -9,14 +10,14 @@ class GameSpace:
 		self.size = self.width, self.height = 640, 470
 		self.black = 0, 0, 0
 		self.screen = pygame.display.set_mode(self.size)
-		background = pygame.image.load("sprites/21.png")
+		background = pygame.image.load("sprites/background.png")
 
 		# Initialize objects and clock
-		# self.spriteList = []
-		# self.player1 = Player(self, img1)
-		# self.player2 = Player(self, img2)
-		# self.spriteList.append(self.player1)
-		# self.spriteList.append(self.player2)
+		self.spriteList = []
+		self.player1 = Player(self, 1)
+		self.player2 = Player(self, 2)
+		self.spriteList.append(self.player1)
+		self.spriteList.append(self.player2)
 		# self.lasers = []
 		self.clock = pygame.time.Clock()
 		# self.explosion = 0
@@ -24,23 +25,23 @@ class GameSpace:
 
 		while 1:
 			self.clock.tick(60)
-			# for event in pygame.event.get():
+			for event in pygame.event.get():
 
-			# 	# If the user clicks out of the game
-			# 	if event.type == pygame.QUIT:
-			# 		exit(0)
+				# If the user clicks out of the game
+				if event.type == pygame.QUIT:
+					exit(0)
 
-			# 	# If down or up arrow key is pressed
-			# 	if event.type == pygame.KEYDOWN:
-			# 		if event.key == pygame.K_UP:
-			# 			self.player1.move([0,-5])
-			# 		elif event.key == pygame.K_DOWN:
-			# 			self.player1.move([0,5])
-			# 	elif event.type == pygame.KEYUP:
-			# 		if event.key == pygame.K_UP:
-			# 			pass
-			# 		elif event.key == pygame.K_DOWN:
-			# 			pass
+				# If down or up arrow key is pressed
+				if event.type == pygame.KEYDOWN:
+					if event.key == pygame.K_UP:
+						self.player1.move([0,-5])
+					elif event.key == pygame.K_DOWN:
+						self.player1.move([0,5])
+				elif event.type == pygame.KEYUP:
+					if event.key == pygame.K_UP:
+						self.player1.move([0,0])
+					elif event.key == pygame.K_DOWN:
+						self.player1.move([0,0])
 
 
 			# 	# If the user shoots a laser
@@ -55,8 +56,8 @@ class GameSpace:
 			self.screen.fill(self.black)
 			self.screen.blit(background,(0,0))
 
-			# for sprite in reversed(self.spriteList):
-			# 	self.screen.blit(sprite.img, sprite.rect)
+			for sprite in reversed(self.spriteList):
+				self.screen.blit(sprite.img, sprite.rect)
 
 
 			pygame.display.flip()
