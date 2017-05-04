@@ -34,14 +34,18 @@ class GameSpace:
 				# If down or up arrow key is pressed
 				if event.type == pygame.KEYDOWN:
 					if event.key == pygame.K_UP:
-						self.player1.move([0,-5])
+						self.player1.move_speed = -5
+						#self.player1.move([0,-5])
 					elif event.key == pygame.K_DOWN:
-						self.player1.move([0,5])
+						self.player1.move_speed = 5
+						#self.player1.move([0,5])
 				elif event.type == pygame.KEYUP:
 					if event.key == pygame.K_UP:
-						self.player1.move([0,0])
+						self.player1.move_speed = 0
+						#self.player1.move([0,0])
 					elif event.key == pygame.K_DOWN:
-						self.player1.move([0,0])
+						self.player1.move_speed = 0
+						#self.player1.move([0,0])
 
 
 			# 	# If the user shoots a laser
@@ -50,8 +54,8 @@ class GameSpace:
 			# 			self.player.is_firing = True
 			# 			self.player.mouse_x, self.player.mouse_y = pygame.mouse.get_pos()
 
-			# for sprite in self.spriteList:
-			# 	sprite.tick()
+			for sprite in self.spriteList:
+				sprite.tick()
 
 			self.screen.fill(self.black)
 			self.screen.blit(background,(0,0))

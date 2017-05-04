@@ -13,6 +13,8 @@ class Player(pygame.sprite.Sprite):
 			self.rect.centerx = 630
 			self.rect.centery = 235
 
+		self.move_speed = 0
+
 		# self.is_firing = False
 		# self.time_to_fire = 0
 		# self.mouse_x = 0
@@ -26,7 +28,8 @@ class Player(pygame.sprite.Sprite):
 	# 	self.img = pygame.transform.rotate(self.org_img, degree)
 	# 	self.rect = self.img.get_rect(center=self.rect.center)
 
-	# def tick(self):
+	def tick(self):
+		self.rect.centery += self.move_speed
 	# 	if self.is_firing:
 
 	# 		angle = math.atan2(self.rect.centery-self.mouse_y, self.mouse_x-self.rect.centerx)
