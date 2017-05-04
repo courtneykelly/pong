@@ -32,9 +32,9 @@ class GameSpace:
 				# If down or up arrow key is pressed
 				if event.type == pygame.KEYDOWN:
 					if event.key == pygame.K_UP:
-						self.player.move([0,-5])
+						self.player1.move([0,-5])
 					elif event.key == pygame.K_DOWN:
-						self.player.move([0,5])
+						self.player1.move([0,5])
 				elif event.type == pygame.KEYUP:
 					if event.key == pygame.K_UP:
 						pass
