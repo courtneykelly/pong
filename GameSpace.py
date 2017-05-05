@@ -1,6 +1,8 @@
 import pygame
 import math
 from Player import Player
+from Ball import Ball
+from Score import Score
 
 class GameSpace:
 	def main(self):
@@ -17,10 +19,12 @@ class GameSpace:
 		self.player1 = Player(self, 1)
 		self.player2 = Player(self, 2)
 		self.ball = Ball(self)
+		self.score = Score(self)
 		self.spriteList.append(self.player1)
 		self.spriteList.append(self.player2)
 		self.spriteList.append(self.ball)
-		
+		self.spriteList.append(self.score)
+
 		self.clock = pygame.time.Clock()
 
 
