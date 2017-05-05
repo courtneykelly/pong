@@ -5,6 +5,8 @@ from twisted.internet.task import LoopingCall
 
 from GameSpace import GameSpace
 
+import cPickle as pickle
+
 class HostConnection(Protocol):
 	def __init__(self):
 		self.gs = GameSpace()
@@ -12,12 +14,24 @@ class HostConnection(Protocol):
 
 	def connectionMade(self):
 		print "Connected to client"
+		start.loop_call.start(.5)
 
 	def dataReceived(self, data):
 		pass
 
 	def dump(self):
-		pass
+		self.gs.main_loop()
+
+		# Send ball, paddle positions, scores
+		objects = {}
+		objects['ball'] = self.gs.ball.rect.center
+		objects['player1'] = self.gs.player1.rect.center
+		objects['player2'] = self.gs.player2.rect.center
+		objects['score1'] = self.gs.score1.rect.center
+		objects['score2'] = self.gs.score2.rect.center
+
+		package = pickle.dump(objects)
+		self.transport.write(package)
 
 class HostConnectionFactory(Factory):
 
