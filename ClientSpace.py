@@ -4,7 +4,7 @@ from Player import Player
 from Ball import Ball
 from Score import Score
 
-class GameSpace:
+class ClientSpace:
 	def main(self):
 
 		# Initialize screen

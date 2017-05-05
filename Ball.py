@@ -28,10 +28,10 @@ class Ball(pygame.sprite.Sprite):
 	def tick(self):
 
 		if ( self.rect.centerx + 15 < 0 ):
-			self.gs.score.increment_score(2)
+			self.gs.score2.increment_score()
 			self.reset()
 		elif ( self.rect.centerx - 15 > self.gs.width ):
-			self.gs.score.increment_score(1)
+			self.gs.score1.increment_score()
 			self.reset()
 
 		# Collisions with bar
