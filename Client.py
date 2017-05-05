@@ -5,16 +5,23 @@ from twisted.internet.task import LoopingCall
 
 from ClientSpace import ClientSpace
 
+import cPickle as pickle
+
 class ClientConnection(Protocol):
 	def __init__(self):
 		self.cs = ClientSpace()
-		self.loop_call = LoopingCall(self.dump)
+		#self.loop_call = LoopingCall(self.dump)
 
 	def connectionMade(self):
 		print "Connected to host"
+		#self.loop_call.start(.5)
 
 	def dataReceived(self, data):
-		pass
+		try:
+			objects = pickle.loads(data)
+			self.cs.update_screen(objects)
+		except:
+			pass
 
 	def dump(self):
 		pass
