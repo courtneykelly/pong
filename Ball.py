@@ -1,24 +1,13 @@
 import pygame
 import math
 
-class Player(pygame.sprite.Sprite):
-	def __init__(self, gs, player_num):
+class Ball(pygame.sprite.Sprite):
+	def __init__(self, gs):
 		self.gs = gs
 		self.img = pygame.image.load("sprites/player.png")
 		self.rect = self.img.get_rect()
-		if player_num == 1:
-			self.rect.centerx = 10
-			self.rect.centery = 235
-		elif player_num == 2:
-			self.rect.centerx = 630
-			self.rect.centery = 235
 
 		self.move_speed = 0
-
-		# self.is_firing = False
-		# self.time_to_fire = 0
-		# self.mouse_x = 0
-		# self.mouse_y = 0
 
 
 	def move(self, coord):

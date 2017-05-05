@@ -16,11 +16,13 @@ class GameSpace:
 		self.spriteList = []
 		self.player1 = Player(self, 1)
 		self.player2 = Player(self, 2)
+		self.ball = Ball(self)
 		self.spriteList.append(self.player1)
 		self.spriteList.append(self.player2)
-		# self.lasers = []
+		self.spriteList.append(self.ball)
+		
 		self.clock = pygame.time.Clock()
-		# self.explosion = 0
+
 
 
 		while 1:
@@ -48,19 +50,13 @@ class GameSpace:
 						#self.player1.move([0,0])
 
 
-			# 	# If the user shoots a laser
-			# 	if event.type == pygame.MOUSEBUTTONDOWN:
-			# 		if self.player.is_firing == False:
-			# 			self.player.is_firing = True
-			# 			self.player.mouse_x, self.player.mouse_y = pygame.mouse.get_pos()
-
 			for sprite in self.spriteList:
 				sprite.tick()
 
 			self.screen.fill(self.black)
 			self.screen.blit(background,(0,0))
 
-			for sprite in reversed(self.spriteList):
+			for sprite in self.spriteList:
 				self.screen.blit(sprite.img, sprite.rect)
 
 
