@@ -20,6 +20,7 @@ class HostConnection(Protocol):
 		try:
 			objects = pickle.loads(data)
 			self.gs.player2.rect.center = objects['player2']
+			self.gs.stop = objects['stop']
 		except:
 			pass
 
@@ -28,6 +29,7 @@ class HostConnection(Protocol):
 
 		# Send ball, paddle positions, scores
 		objects = {}
+		objects['stop'] = self.gs.stop
 		objects['level'] = self.gs.level
 		objects['counter'] = self.gs.counter
 		objects['ball1'] = self.gs.ball1.rect.center

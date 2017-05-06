@@ -64,12 +64,15 @@ class ClientSpace:
 			self.screen.blit(pygame.image.load("sprites/level"+str(self.level)+".png"),(0,0))
 
 		else:
+			self.stop = objects['stop']
+			if self.stop == 1:
+				exit(0)
 
 			for event in pygame.event.get():
 
 				# If the user clicks out of the game
 				if event.type == pygame.QUIT or self.stop == 1:
-					exit(0)
+					self.stop = 1
 
 				# If down or up arrow key is pressed
 				if event.type == pygame.KEYDOWN:

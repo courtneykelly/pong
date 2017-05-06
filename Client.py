@@ -26,6 +26,7 @@ class ClientConnection(Protocol):
 	def dump(self):
 		objects = {}
 		objects['player2'] = self.cs.player2.rect.center
+		objects['stop'] = self.cs.stop
 		package = pickle.dumps(objects)
 		self.transport.write(package)
 

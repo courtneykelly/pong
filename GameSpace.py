@@ -64,12 +64,15 @@ class GameSpace:
 			self.counter-=1
 		else:
 			self.win = 0
+			if self.stop == 1:
+				exit(0)
 
 			for event in pygame.event.get():
 
 				# If the user clicks out of the game
 				if event.type == pygame.QUIT or self.stop == 1:
-					exit(0)
+					self.stop = 1
+					#exit(0)
 
 				# If down or up arrow key is pressed
 				if event.type == pygame.KEYDOWN:
