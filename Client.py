@@ -28,6 +28,8 @@ class ClientConnection(Protocol):
 		objects = {}
 		objects['player2'] = self.cs.player2.rect.center
 		objects['stop'] = self.cs.stop
+		if self.cs.stop == 1:
+			self.transport.lostConnection()
 		package = pickle.dumps(objects)
 		self.transport.write(package)
 

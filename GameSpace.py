@@ -65,8 +65,8 @@ class GameSpace:
 			self.counter-=1
 		else:
 			self.win = 0
-			if self.stop == 1:
-				sys.exit()
+			# if self.stop == 1:
+			# 	sys.exit()
 
 			for event in pygame.event.get():
 

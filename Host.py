@@ -30,6 +30,8 @@ class HostConnection(Protocol):
 
 		# Send ball, paddle positions, scores
 		objects = {}
+		if self.gs.stop == 1:
+			self.transport.loseConnection()
 		objects['stop'] = self.gs.stop
 		objects['level'] = self.gs.level
 		objects['counter'] = self.gs.counter
