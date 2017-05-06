@@ -31,10 +31,9 @@ class GameSpace:
 		self.win = 0
 
 	def main_loop(self):
+		self.win = 0
 
 		for event in pygame.event.get():
-
-			self.win = 0
 
 			# If the user clicks out of the game
 			if event.type == pygame.QUIT or self.stop == 1:
