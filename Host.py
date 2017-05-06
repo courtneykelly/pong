@@ -43,6 +43,7 @@ class HostConnection(Protocol):
 		package = pickle.dumps(objects)
 		self.transport.write(package)
 
+
 class HostConnectionFactory(Factory):
 
 	def __init__(self):

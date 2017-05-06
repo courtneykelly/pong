@@ -30,6 +30,7 @@ class ClientConnection(Protocol):
 		package = pickle.dumps(objects)
 		self.transport.write(package)
 
+
 class ClientConnectionFactory(ClientFactory):
 
 	def __init__(self):
