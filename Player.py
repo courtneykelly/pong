@@ -15,8 +15,6 @@ class Player(pygame.sprite.Sprite):
 
 		self.move_speed = 0
 
-
-
 	def move(self, coord):
 		self.rect = self.rect.move(coord)
 

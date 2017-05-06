@@ -2,7 +2,6 @@ from twisted.internet.protocol import ClientFactory
 from twisted.internet.protocol import Protocol
 from twisted.internet import reactor
 from twisted.internet.task import LoopingCall
-
 from ClientSpace import ClientSpace
 
 import cPickle as pickle
@@ -29,13 +28,12 @@ class ClientConnection(Protocol):
 		objects['player2'] = self.cs.player2.rect.center
 		objects['stop'] = self.cs.stop
 		if self.cs.stop == 1:
-			self.transport.lostConnection()
+			self.transport.loseConnection()
 		package = pickle.dumps(objects)
 		self.transport.write(package)
 
 	def connectionLost(self, reason):
 		reactor.stop()
-		sys.exit("Connection to host lost: {0}".format(reason))
 
 class ClientConnectionFactory(ClientFactory):
 
@@ -45,6 +43,8 @@ class ClientConnectionFactory(ClientFactory):
 	def buildProtocol(self, addr):
 		return self.clientconn
 
-#start listening
+# Connect to Host
 reactor.connectTCP('10.12.190.109', 9007, ClientConnectionFactory())
 reactor.run()
+print "Exited successfully, thanks for playing!"
+sys.exit(0)

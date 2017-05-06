@@ -66,8 +66,6 @@ class ClientSpace:
 
 		else:
 			self.stop = objects['stop']
-			# if self.stop == 1:
-			# 	sys.exit()
 
 			for event in pygame.event.get():
 
