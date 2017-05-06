@@ -41,10 +41,10 @@ class GameSpace:
 			# If down or up arrow key is pressed
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_UP:
-					self.player1.move_speed = -32
+					self.player1.move_speed = -5
 					#self.player1.move([0,-5])
 				elif event.key == pygame.K_DOWN:
-					self.player1.move_speed = 32
+					self.player1.move_speed = 5
 					#self.player1.move([0,5])
 			elif event.type == pygame.KEYUP:
 				if event.key == pygame.K_UP:

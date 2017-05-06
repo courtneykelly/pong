@@ -41,10 +41,10 @@ class ClientSpace:
 			# If down or up arrow key is pressed
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_UP:
-					self.player2.move_speed = -32
+					self.player2.move_speed = -5
 					
 				elif event.key == pygame.K_DOWN:
-					self.player2.move_speed = 32
+					self.player2.move_speed = 5
 					
 			elif event.type == pygame.KEYUP:
 				if event.key == pygame.K_UP:

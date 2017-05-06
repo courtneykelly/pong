@@ -10,7 +10,7 @@ class Ball(pygame.sprite.Sprite):
 		self.rect.centerx = self.gs.width/2
 		self.rect.centery = self.gs.height/2
 
-		self.speeds = [-8, 8]
+		self.speeds = [-5, 5]
 		self.move_speed_x = random.choice(self.speeds)
 		self.move_speed_y = random.choice(self.speeds)
 
