@@ -45,7 +45,7 @@ class HostConnection(Protocol):
 		self.transport.write(package)
 
 	def connectionLost(self, reason):
-		reactor.stop()
+		#reactor.stop()
 		sys.exit("Connection to client lost: {0}".format(reason))
 
 class HostConnectionFactory(Factory):
