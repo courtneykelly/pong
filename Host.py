@@ -28,7 +28,9 @@ class HostConnection(Protocol):
 
 		# Send ball, paddle positions, scores
 		objects = {}
-		objects['ball'] = self.gs.ball.rect.center
+		objects['ball1'] = self.gs.ball1.rect.center
+		objects['ball2'] = self.gs.ball2.rect.center
+		objects['ball3'] = self.gs.ball3.rect.center
 		objects['player1'] = self.gs.player1.rect.center
 		objects['score1'] = self.gs.score1.score
 		objects['score2'] = self.gs.score2.score
