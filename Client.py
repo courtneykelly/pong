@@ -10,11 +10,11 @@ import cPickle as pickle
 class ClientConnection(Protocol):
 	def __init__(self):
 		self.cs = ClientSpace()
-		#self.loop_call = LoopingCall(self.dump)
+		self.loop_call = LoopingCall(self.dump)
 
 	def connectionMade(self):
 		print "Connected to host"
-		#self.loop_call.start(.5)
+		self.loop_call.start(.5)
 
 	def dataReceived(self, data):
 		try:
@@ -24,7 +24,7 @@ class ClientConnection(Protocol):
 			pass
 
 	def dump(self):
-		pass
+		self.transport.write("hello")
 
 class ClientConnectionFactory(ClientFactory):
 
@@ -35,5 +35,5 @@ class ClientConnectionFactory(ClientFactory):
 		return self.clientconn
 
 #start listening
-reactor.connectTCP('10.12.194.169', 9007, ClientConnectionFactory())
+reactor.connectTCP('10.12.190.109', 9007, ClientConnectionFactory())
 reactor.run()
