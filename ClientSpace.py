@@ -26,8 +26,8 @@ class ClientSpace:
 		self.spriteList.append(self.score1)
 		self.spriteList.append(self.score2)
 
-		#self.clock = pygame.time.Clock()
 		self.stop = 0
+		self.win = 0
 
 	def update_screen(self, objects):
 

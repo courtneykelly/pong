@@ -25,4 +25,4 @@ class Score(pygame.sprite.Sprite):
 		img_link = "sprites/" + str(self.score) + ".png"
 		self.img = pygame.image.load(img_link)
 		if self.score == 10:
-			self.gs.stop = 1
+			self.gs.win = 1
