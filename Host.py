@@ -48,7 +48,6 @@ class HostConnection(Protocol):
 
 	def connectionLost(self, reason):
 		reactor.stop()
-		sys.exit("Connection to client lost: {0}".format(reason))
 
 class HostConnectionFactory(Factory):
 
@@ -62,3 +61,5 @@ class HostConnectionFactory(Factory):
 
 reactor.listenTCP(9007, HostConnectionFactory()) 
 reactor.run()
+print "Exited successfully, thanks for playing!"
+sys.exit(0)
