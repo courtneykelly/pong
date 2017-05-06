@@ -6,6 +6,7 @@ from twisted.internet.task import LoopingCall
 from ClientSpace import ClientSpace
 
 import cPickle as pickle
+import sys
 
 class ClientConnection(Protocol):
 	def __init__(self):

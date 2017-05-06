@@ -6,6 +6,7 @@ from twisted.internet.task import LoopingCall
 from GameSpace import GameSpace
 
 import cPickle as pickle
+import sys
 
 class HostConnection(Protocol):
 	def __init__(self):
@@ -42,7 +43,7 @@ class HostConnection(Protocol):
 
 		package = pickle.dumps(objects)
 		self.transport.write(package)
-		
+
 	def connectionLost(self, reason):
 		sys.exit("Connection to client lost: {0}".format(reason))
 
