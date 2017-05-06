@@ -30,7 +30,6 @@ class ClientConnection(Protocol):
 		objects['stop'] = self.cs.stop
 		if self.cs.stop == 1:
 			self.transport.lostConnection()
-			sys.exit()
 		package = pickle.dumps(objects)
 		self.transport.write(package)
 

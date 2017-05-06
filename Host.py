@@ -32,7 +32,6 @@ class HostConnection(Protocol):
 		objects = {}
 		if self.gs.stop == 1:
 			self.transport.loseConnection()
-			sys.exit()
 		objects['stop'] = self.gs.stop
 		objects['level'] = self.gs.level
 		objects['counter'] = self.gs.counter
@@ -48,7 +47,7 @@ class HostConnection(Protocol):
 		self.transport.write(package)
 
 	def connectionLost(self, reason):
-		#reactor.stop()
+		reactor.stop()
 		sys.exit("Connection to client lost: {0}".format(reason))
 
 class HostConnectionFactory(Factory):
