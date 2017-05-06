@@ -27,6 +27,6 @@ class Score(pygame.sprite.Sprite):
 		if self.score == 10 and self.gs.level >= 3:
 			self.gs.win = self.player
 			self.score = 0
-		else:
+		elif self.score == 10:
 			self.gs.counter = 120
 			self.gs.reset()
