@@ -30,6 +30,8 @@ class ClientConnection(Protocol):
 		package = pickle.dumps(objects)
 		self.transport.write(package)
 
+	def connectionLost(self, reason):
+		sys.exit("Connection to host lost: {0}".format(reason))
 
 class ClientConnectionFactory(ClientFactory):
 
