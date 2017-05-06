@@ -56,7 +56,7 @@ class GameSpace:
 
 		if self.counter > 0:
 			self.screen.fill(self.black)
-			self.screen.blit(pygame.image.load("sprites/level"+str(self.level)+".png",(0,0)))
+			self.screen.blit(pygame.image.load("sprites/level"+str(self.level)+".png"),(0,0))
 			self.counter-=1
 		else:
 			self.win = 0
