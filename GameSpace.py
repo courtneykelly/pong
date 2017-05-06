@@ -29,6 +29,9 @@ class GameSpace:
 		self.spriteList.append(self.score2)
 		self.spriteList.append(self.ball1)
 
+		self.player1_tot = 0
+		self.player2_tot = 0
+
 		self.stop = 0
 		self.win = 0
 

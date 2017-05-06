@@ -29,6 +29,9 @@ class ClientSpace:
 		self.spriteList.append(self.score1)
 		self.spriteList.append(self.score2)
 
+		self.player1_tot = 0
+		self.player2_tot = 0
+
 		self.stop = 0
 		self.win = 0
 

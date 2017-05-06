@@ -25,8 +25,15 @@ class Score(pygame.sprite.Sprite):
 		img_link = "sprites/" + str(self.score) + ".png"
 		self.img = pygame.image.load(img_link)
 		if self.score == 10 and self.gs.level >= 3:
-			self.gs.win = self.player
+			if self.player1_tot > self.player2_tot:
+				self.gs.win = 1
+			else:
+				self.gs.win = 2
 			self.score = 0
 		elif self.score == 10:
+			if self.player == 1:
+				self.gs.player1_tot += 1
+			else:
+				self.gs.player2_tot += 1
 			self.gs.counter = 120
 			self.gs.reset()
