@@ -17,7 +17,11 @@ class HostConnection(Protocol):
 		self.loop_call.start(.25)
 
 	def dataReceived(self, data):
-		print "data received: ", data
+		try:
+			objects = pickle.loads(data)
+			self.gs.player2.rect.center = objects['player2']
+		except:
+			pass
 
 	def dump(self):
 		self.gs.main_loop()
@@ -30,7 +34,7 @@ class HostConnection(Protocol):
 		objects['score1'] = self.gs.score1.rect.center
 		objects['score2'] = self.gs.score2.rect.center
 
-		package = pickle.dump(objects)
+		package = pickle.dumps(objects)
 		self.transport.write(package)
 
 class HostConnectionFactory(Factory):
