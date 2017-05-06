@@ -30,9 +30,9 @@ class Score(pygame.sprite.Sprite):
 			else:
 				self.gs.player2_tot += 1
 
-			if self.player1_tot > self.player2_tot:
+			if self.gs.player1_tot > self.gs.player2_tot:
 				self.gs.win = 1
-			elif self.player1_tot == self.player2_tot:
+			elif self.gs.player1_tot == self.gs.player2_tot:
 				self.gs.win = 1
 			else:
 				self.gs.win = 2
