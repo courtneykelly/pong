@@ -1,5 +1,6 @@
 import pygame
 import math
+import sys
 from Player import Player
 from Ball import Ball
 from Score import Score
@@ -65,7 +66,7 @@ class GameSpace:
 		else:
 			self.win = 0
 			if self.stop == 1:
-				exit(0)
+				sys.exit()
 
 			for event in pygame.event.get():
 
