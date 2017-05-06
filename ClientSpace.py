@@ -35,8 +35,7 @@ class ClientSpace:
 		self.level = 1
 		self.counter = 120
 
-	def reset(self):
-		self.level += 1
+	def reset(self): 
 		# Reinitialize spriteList
 		self.spriteList[:] = [] # empty sprite list
 		self.spriteList.append(self.player1)
@@ -49,10 +48,12 @@ class ClientSpace:
 		if self.level == 2:
 			self.spriteList.append(self.ball2)
 		elif self.level == 3:
+			self.spriteList.append(self.ball2)
 			self.spriteList.append(self.ball3)
 
 	def update_screen(self, objects):
 		self.counter = objects['counter']
+		self.level = objects['level']
 
 		if self.counter > 0:
 			self.screen.fill(self.black)

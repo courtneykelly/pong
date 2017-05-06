@@ -49,6 +49,7 @@ class GameSpace:
 		if self.level == 2:
 			self.spriteList.append(self.ball2)
 		elif self.level == 3:
+			self.spriteList.append(self.ball2)
 			self.spriteList.append(self.ball3)
 
 
