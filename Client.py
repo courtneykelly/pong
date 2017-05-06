@@ -14,7 +14,7 @@ class ClientConnection(Protocol):
 
 	def connectionMade(self):
 		print "Connected to host"
-		self.loop_call.start(.5)
+		self.loop_call.start(.25)
 
 	def dataReceived(self, data):
 		try:
@@ -24,7 +24,10 @@ class ClientConnection(Protocol):
 			pass
 
 	def dump(self):
-		self.transport.write("hello")
+		objects = {}
+		objects['player2'] = self.cs.player2.rect.center
+		package = pickle.dumps(objects)
+		self.transport.write(package)
 
 class ClientConnectionFactory(ClientFactory):
 
