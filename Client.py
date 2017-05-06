@@ -14,7 +14,7 @@ class ClientConnection(Protocol):
 
 	def connectionMade(self):
 		print "Connected to host"
-		self.loop_call.start(.25)
+		self.loop_call.start(1/60)
 
 	def dataReceived(self, data):
 		try:
