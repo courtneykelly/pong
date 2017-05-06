@@ -9,8 +9,27 @@ There are several different libraries needed in order to compile and run our gam
 
 **Summary**
 * must be run using `Python 2`
+* `pip`
 * Python modules
-  * pygame
-  * twisted
+  * `pygame`
+  * `twisted`
+  * `mercurial`
+* Additional (possible) installations
+ * `zope.interface`
+
+## How to Run
+Running our game is quite simple. Once you have the necessary packages installed, execute the following steps:
+1. Player 2 should open the `Address.py` file and enter the IP address of Player 1's computer network. 
+2. Both Player 1 and 2 should have the same port number in the `Address.py` file. This value must be >= 9000.
+3. Player 1 executes:
+```bash
+python Host.py
+```
+4. Player 2 should wait a couple seconds after Player 1 runs `Host.py` to execute:
+```bash
+python Client.py`
+```
+5. Have fun!
 
 ## How to Play
+
