@@ -45,6 +45,7 @@ class HostConnection(Protocol):
 		self.transport.write(package)
 
 	def connectionLost(self, reason):
+		reactor.stop()
 		sys.exit("Connection to client lost: {0}".format(reason))
 
 class HostConnectionFactory(Factory):
@@ -56,11 +57,6 @@ class HostConnectionFactory(Factory):
 		return self.hostconn
 
 #start listening
-try: 
-	reactor.listenTCP(9007, HostConnectionFactory()) 
-	reactor.run()
-	print "in try "
-except Exception as e:
-	print e
-finally:
-	reactor.stop()
+
+reactor.listenTCP(9007, HostConnectionFactory()) 
+reactor.run()
