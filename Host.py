@@ -17,7 +17,7 @@ class HostConnection(Protocol):
 		self.loop_call.start(.25)
 
 	def dataReceived(self, data):
-		pass
+		print "data received: ", data
 
 	def dump(self):
 		self.gs.main_loop()
@@ -42,5 +42,11 @@ class HostConnectionFactory(Factory):
 		return self.hostconn
 
 #start listening
-reactor.listenTCP(9007, HostConnectionFactory())
-reactor.run()
+try: 
+	reactor.listenTCP(9007, HostConnectionFactory()) 
+	reactor.run()
+	print "in try "
+except Exception as e:
+	print e
+finally:
+	reactor.stop()
