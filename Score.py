@@ -24,7 +24,7 @@ class Score(pygame.sprite.Sprite):
 	def tick(self):
 		img_link = "sprites/" + str(self.score) + ".png"
 		self.img = pygame.image.load(img_link)
-		if self.score == 10 && self.gs.level >= 3:
+		if self.score == 10 and self.gs.level >= 3:
 			self.gs.win = self.player
 			self.score = 0
 		else:
