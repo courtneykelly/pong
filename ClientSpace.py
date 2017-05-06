@@ -56,8 +56,11 @@ class ClientSpace:
 		# Update objects
 		self.player1.rect.center = objects['player1']
 		self.ball.rect.center = objects['ball']
-		self.score1.rect.center = objects['score1']
-		self.score2.rect.center = objects['score2']
+		self.score1.rect.center = objects['score1'][0]
+		self.score2.rect.center = objects['score2'][0]
+
+		self.score1.score = objects['score1'][1]
+		self.score2.score = objects['score2'][1]
 
 		for sprite in self.spriteList:
 			sprite.tick()

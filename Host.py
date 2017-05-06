@@ -31,8 +31,8 @@ class HostConnection(Protocol):
 		objects['ball'] = self.gs.ball.rect.center
 		objects['player1'] = self.gs.player1.rect.center
 		#objects['player2'] = self.gs.player2.rect.center
-		objects['score1'] = self.gs.score1.rect.center
-		objects['score2'] = self.gs.score2.rect.center
+		objects['score1'] = [self.gs.score1.rect.center, self.gs.score1.score]
+		objects['score2'] = [self.gs.score2.rect.center, self.gs.score2.score]
 
 		package = pickle.dumps(objects)
 		self.transport.write(package)
