@@ -59,15 +59,20 @@ class ClientSpace:
 
 		self.score1.score = objects['score1']
 		self.score2.score = objects['score2']
-
-		self.background = objects['background']
-		self.spriteList = objects['spriteList']
+		self.win = objects['win']
 
 		for sprite in self.spriteList:
 			sprite.tick()
 
 		self.screen.fill(self.black)
 		self.screen.blit(self.background,(0,0))
+
+		if self.win > 0:
+			self.background = pygame.image.load("sprites/winner"+str(self.win)+".png")
+			self.spriteList[:] = [] # empty sprite list
+			for collin in range(100):
+				win_screen = Win(self, self.win)
+				self.spriteList.append(win_screen)
 
 		for sprite in self.spriteList:
 			self.screen.blit(sprite.img, sprite.rect)

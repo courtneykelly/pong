@@ -34,6 +34,8 @@ class GameSpace:
 
 		for event in pygame.event.get():
 
+			self.win = 0
+
 			# If the user clicks out of the game
 			if event.type == pygame.QUIT or self.stop == 1:
 				exit(0)
@@ -63,7 +65,7 @@ class GameSpace:
 			for collin in range(100):
 				win_screen = Win(self, self.win)
 				self.spriteList.append(win_screen)
-			self.win = 0
+
 		
 		for sprite in self.spriteList:
 			self.screen.blit(sprite.img, sprite.rect)

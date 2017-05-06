@@ -26,3 +26,4 @@ class Score(pygame.sprite.Sprite):
 		self.img = pygame.image.load(img_link)
 		if self.score == 10:
 			self.gs.win = 1
+			self.score = 0
