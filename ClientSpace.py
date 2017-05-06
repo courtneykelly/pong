@@ -55,7 +55,6 @@ class ClientSpace:
 
 		# Update objects
 		self.player1.rect.center = objects['player1']
-		self.player2.rect.center = objects['player2']
 		self.ball.rect.center = objects['ball']
 		self.score1.rect.center = objects['score1']
 		self.score2.rect.center = objects['score2']
