@@ -3,6 +3,8 @@ from twisted.internet.protocol import Protocol
 from twisted.internet import reactor
 from twisted.internet.task import LoopingCall
 from ClientSpace import ClientSpace
+from Address import HOST_ADDRESS
+from Address import PORT
 
 import cPickle as pickle
 import sys
@@ -44,7 +46,7 @@ class ClientConnectionFactory(ClientFactory):
 		return self.clientconn
 
 # Connect to Host
-reactor.connectTCP('10.12.190.109', 9007, ClientConnectionFactory())
+reactor.connectTCP(HOST_ADDRESS, PORT, ClientConnectionFactory())
 reactor.run()
 print "Exited successfully, thanks for playing!"
 sys.exit(0)

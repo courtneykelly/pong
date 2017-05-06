@@ -1,1 +1,2 @@
-hostAddress = '10.12.190.109'
+HOST_ADDRESS = '10.12.190.109'
+PORT = 9007

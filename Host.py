@@ -2,6 +2,7 @@ from twisted.internet.protocol import Factory
 from twisted.internet.protocol import Protocol
 from twisted.internet import reactor
 from twisted.internet.task import LoopingCall
+from Address import PORT
 
 from GameSpace import GameSpace
 
@@ -59,7 +60,7 @@ class HostConnectionFactory(Factory):
 
 #start listening
 
-reactor.listenTCP(9007, HostConnectionFactory()) 
+reactor.listenTCP(PORT, HostConnectionFactory()) 
 reactor.run()
 print "Exited successfully, thanks for playing!"
 sys.exit(0)
