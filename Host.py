@@ -32,6 +32,8 @@ class HostConnection(Protocol):
 		objects['player1'] = self.gs.player1.rect.center
 		objects['score1'] = self.gs.score1.score
 		objects['score2'] = self.gs.score2.score
+		objects['spriteList'] = self.gs.spriteList
+		objects['background'] = self.gs.background
 
 		package = pickle.dumps(objects)
 		self.transport.write(package)

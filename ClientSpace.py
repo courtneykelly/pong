@@ -20,11 +20,11 @@ class ClientSpace:
 		self.ball = Ball(self)
 		self.score1 = Score(self, 1)
 		self.score2 = Score(self, 2)
-		self.spriteList.append(self.player1)
-		self.spriteList.append(self.player2)
-		self.spriteList.append(self.ball)
-		self.spriteList.append(self.score1)
-		self.spriteList.append(self.score2)
+		# self.spriteList.append(self.player1)
+		# self.spriteList.append(self.player2)
+		# self.spriteList.append(self.ball)
+		# self.spriteList.append(self.score1)
+		# self.spriteList.append(self.score2)
 
 		self.stop = 0
 		self.win = 0
@@ -59,6 +59,9 @@ class ClientSpace:
 
 		self.score1.score = objects['score1']
 		self.score2.score = objects['score2']
+
+		self.background = objects['background']
+		self.spriteList = objects['spriteList']
 
 		for sprite in self.spriteList:
 			sprite.tick()
