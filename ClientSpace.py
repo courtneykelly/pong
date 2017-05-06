@@ -36,6 +36,7 @@ class ClientSpace:
 		self.counter = 120
 
 	def reset(self): 
+		self.level += 1
 		# Reinitialize spriteList
 		self.spriteList[:] = [] # empty sprite list
 		self.spriteList.append(self.player1)
